@@ -10,6 +10,7 @@
 
 Require Import Classical.
 Require Import semantics.
+Require Import Omega.
 
 (** The type system **)
 

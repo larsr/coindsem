@@ -9,7 +9,7 @@
    version 2, http://www.gnu.org/licenses/gpl.html *)
 
 Require Import List.
-Require Omega.
+Require Import Omega.
 
 (** Syntax and big-step semantics with de Bruijn indices,
     closures, and environments. **)

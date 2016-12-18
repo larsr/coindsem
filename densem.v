@@ -10,7 +10,7 @@
 
 Require Import Classical.
 Require Import semantics.
-Require Omega.
+Require Import Omega.
 Require Import Arith.
 Require Import Max.
 Hint Resolve le_refl le_trans le_max_l le_max_r.

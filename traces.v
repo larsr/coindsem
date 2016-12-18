@@ -8,6 +8,7 @@
    This file is distributed under the terms of the GNU Public License
    version 2, http://www.gnu.org/licenses/gpl.html *)
 
+Require Import Setoid.
 Require Import Classical.
 Require Import List.
 Require Import semantics.
@@ -88,8 +89,6 @@ Proof.
   cofix COINDHYP; intros. inversion H; subst. inversion H0; subst. constructor. apply COINDHYP with t2; auto.
 Qed.
 
-Require Setoid.
-
 Add Relation traceinf traceinf_sim
   reflexivity proved by traceinf_sim_refl
   symmetry proved by traceinf_sim_sym
@@ -107,7 +106,7 @@ Add Morphism append_trace_traceinf
   with signature eq ==> traceinf_sim ==> traceinf_sim
   as append_trace_traceinf_M.
 Proof.
-  induction x; intros; simpl. auto. constructor; auto.
+  induction y; intros; simpl. auto. constructor; auto.
 Qed.
 
 Add Morphism traceinf_app_l
@@ -115,7 +114,7 @@ Add Morphism traceinf_app_l
   as traceinf_app_l_M.
 Proof.
   cofix COINDHYP; intros. 
-  inversion H. dec (traceinf_app_l (a ::: t1) x). dec (traceinf_app_l (a ::: t2) x).
+  inversion H. dec (traceinf_app_l (a ::: t1) y0). dec (traceinf_app_l (a ::: t2) y0).
   constructor. apply COINDHYP; assumption.
 Qed.
 
@@ -124,7 +123,7 @@ Add Morphism traceinf_app_r
   as traceinf_app_r_M.
 Proof.
   cofix COINDHYP; intros. 
-  inversion H. dec (traceinf_app_r x (a ::: t1)). dec (traceinf_app_r x (a ::: t2)).
+  inversion H. dec (traceinf_app_r y (a ::: t1)). dec (traceinf_app_r y (a ::: t2)).
   constructor. apply COINDHYP; assumption.
 Qed.
 
