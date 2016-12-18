@@ -1,0 +1,6 @@
+semantics.vo: semantics.v
+compilation.vo: compilation.v
+typing.vo: typing.v semantics.vo
+densem.vo: densem.v semantics.vo
+cps.vo: cps.v semantics.vo
+traces.vo: traces.v semantics.vo
